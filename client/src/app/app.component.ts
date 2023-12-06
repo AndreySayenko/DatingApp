@@ -1,5 +1,6 @@
+import { AccountService } from './shared/service/account.service';
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from './shared/service';
+import { IUser } from './shared/models/user.interface';
 
 @Component({
   selector: 'app-root',
@@ -8,23 +9,17 @@ import { UsersService } from './shared/service';
 })
 export class AppComponent implements OnInit {
   title = 'DatingApp';
-  public users: any[] = [];
 
-  constructor(private userService: UsersService) {}
+  constructor(private accountService: AccountService) {}
 
   ngOnInit(): void {
-    this.getUsers();
+    this.setCurrentUser();
   }
 
-  private getUsers(): void {
-    this.userService.getUsers().subscribe({
-      next: (res) => {
-        this.users = res;
-      },
-      error: (error) => {
-        console.log(error);
-      },
-      complete: () => console.log('Request complete'),
-    });
+  public setCurrentUser(): void {
+    const userString: any = localStorage.getItem('user');
+    if (!userString) return;
+    const user: IUser = JSON.parse(userString);
+    this.accountService.setCurrentUser(user);
   }
 }
