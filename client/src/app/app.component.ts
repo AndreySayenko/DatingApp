@@ -1,6 +1,6 @@
 import { AccountService } from './shared/service/account.service';
 import { Component, OnInit } from '@angular/core';
-import { IUser } from './shared/models/user.interface';
+import { User } from './shared/models/user.interface';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   public setCurrentUser(): void {
     const userString: any = localStorage.getItem('user');
     if (!userString) return;
-    const user: IUser = JSON.parse(userString);
+    const user: User = JSON.parse(userString);
     this.accountService.setCurrentUser(user);
   }
 }
