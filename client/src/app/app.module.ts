@@ -20,6 +20,7 @@ import {
 } from './shared/interceptors';
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
     MessagesComponent,
     MemberCardComponent,
     MemberEditComponent,
+    PhotoEditorComponent,
   ],
   imports: [
     BrowserModule,
