@@ -6,9 +6,11 @@ import { MemberDetailComponent } from './members/member-detail/member-detail.com
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AuthGuard, preventUnsavedChangesGuard } from './shared/guards';
-import { TestErrorComponent } from './shared/components/test-error/test-error.component';
-import { NotFoundComponent } from './shared/components/not-found/not-found.component';
-import { ServerErrorComponent } from './shared/components/server-error/server-error.component';
+import {
+  NotFoundComponent,
+  TestErrorComponent,
+  ServerErrorComponent,
+} from './shared/components';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 
 const routes: Routes = [

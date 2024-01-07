@@ -1,6 +1,6 @@
 <div class="row" *ngIf="member">
   <div class="col-4">
-    <h1>Youe profile</h1>
+    <h1>Your profile</h1>
   </div>
   <div class="col-8">
     <div class="alert alert-info pb-0" *ngIf="editForm.dirty">
@@ -78,14 +78,14 @@
           ></textarea>
           <h4 class="mt-2">Location Details:</h4>
           <div class="d-flex flex-row align-items-center">
-            <label for="city">City: </label>
+            <label for="city" class="mx-3">City: </label>
             <input
               type="text"
               [(ngModel)]="member.city"
               name="city"
               class="form-control"
             />
-            <label for="city">Country: </label>
+            <label for="city" class="mx-3">Country: </label>
             <input
               type="text"
               [(ngModel)]="member.country"
