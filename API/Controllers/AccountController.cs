@@ -43,7 +43,8 @@ namespace API
       {
         Username = user.UserName,
         Token = _tokenService.CreateToken(user),
-        KnownAs = user.KnownAs
+        KnownAs = user.KnownAs,
+        Gender = user.Gender
       };
     }
 
@@ -72,7 +73,8 @@ namespace API
         Username = user.UserName,
         Token = _tokenService.CreateToken(user),
         PhotoUrl = mainPhoto,
-        KnownAs = user.KnownAs
+        KnownAs = user.KnownAs,
+        Gender = user.Gender
       };
     }
 

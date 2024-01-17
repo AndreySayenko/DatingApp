@@ -5,13 +5,14 @@ import { ActivatedRoute } from '@angular/router';
 import { GalleryComponent, GalleryItem } from '@daelmaak/ngx-gallery';
 import { Member } from 'src/app/shared/models';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { TimeagoModule } from 'ngx-timeago';
 
 @Component({
   selector: 'app-member-detail',
   standalone: true,
   templateUrl: './member-detail.component.html',
   styleUrls: ['./member-detail.component.scss'],
-  imports: [CommonModule, TabsModule, GalleryComponent],
+  imports: [CommonModule, TabsModule, TimeagoModule, GalleryComponent],
 })
 export class MemberDetailComponent implements OnInit {
   public member: Member | undefined;
