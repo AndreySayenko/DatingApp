@@ -11,6 +11,8 @@ import { AccountService } from './account.service';
 })
 export class MembersService {
   private serviceRoot: string = `${environment.apiUrl}users`;
+  private likeServiceRoot: string = `${environment.apiUrl}likes`;
+
   public members: Member[] = [];
   public memberCache = new Map();
   public user: User | undefined;
@@ -99,6 +101,22 @@ export class MembersService {
 
   public deletePhoto(photoId: number): Observable<unknown> {
     return this.http.delete(`${this.serviceRoot}/delete-photo/${photoId}`);
+  }
+
+  public addLike(username: string): Observable<any> {
+    return this.http.post<any>(`${this.likeServiceRoot}/${username}`, {});
+  }
+
+  public getLikes(
+    predicate: string,
+    pageNumber: number,
+    pageSize: number
+  ): Observable<any> {
+    let params = this.getPaginationHeaders(pageNumber, pageSize);
+
+    params = params.append('predicate', predicate);
+
+    return this.getPaginatedResult<Member[]>(`${this.likeServiceRoot}`, params);
   }
 
   private getPaginatedResult<T>(
